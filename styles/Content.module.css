@@ -1,0 +1,26 @@
+/* styles/Content.module.css */
+.content {
+    display: flex;
+    max-width: 1440px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  .main {
+    flex: 3; /* Takes up 3 parts of the flex container */
+    padding: 20px;
+  }
+  
+  .sidebar {
+    flex: 1; /* Takes up 1 part of the flex container */
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-left: 1px solid #ddd;
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+  }
