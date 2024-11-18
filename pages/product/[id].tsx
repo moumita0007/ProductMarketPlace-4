@@ -101,9 +101,10 @@ const staticProducts: Product[] = [
 
 const ProductPage: React.FC = () => {
   const router = useRouter();
-  const { id } = router.query; // Get the product ID from the URL
+  const { id } = router.query;
   const [product, setProduct] = useState<Product | null>(null);
   const [cartItems, setCartItems] = useState<Product[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
   useEffect(() => {
     if (id) {
@@ -129,11 +130,21 @@ const ProductPage: React.FC = () => {
     }
   };
 
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const query = e.target.value;
+    console.log(`Search Query: ${query}`);
+  };
+
   if (!product) return <div>Loading...</div>;
 
   return (
     <div>
-      <Navbar cartCount={cartItems.length} />
+      <Navbar
+        cartCount={cartItems.length}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+        handleSearchChange={handleSearchChange}
+      />
       <div className="wrapper">
         {/* Product Details Section */}
         <div className="product-details-container">
